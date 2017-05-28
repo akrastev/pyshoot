@@ -1,5 +1,10 @@
 import pygame
 import sys
+import logging
+
+logging.basicConfig(format="%(asctime)s %(levelname)s    %(message)s",
+                    level=logging.INFO)
+logging.info("Hello, pyshoot.")
 
 pygame.init()
 font = pygame.font.SysFont("monospace", 15)
@@ -35,6 +40,7 @@ text = font.render("Click on the target!", True, (0, 0, 255))
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
+            logging.info("Time to go now")
             sys.exit()
         if event.type == pygame.MOUSEBUTTONDOWN:
             if bullseye.collidepoint(event.pos):
